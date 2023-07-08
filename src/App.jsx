@@ -5,6 +5,7 @@ import {
   SignupPage,
   LoginPage,
   ProfilePage,
+  ImagePage,
 } from "./pages/index.js";
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/user-profile" element={<ProfilePage />} />
+          <Route path="/image/:_id" element={<ImagePage />} />
         </Routes>
       </main>
     </BrowserRouter>

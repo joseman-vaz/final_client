@@ -43,7 +43,10 @@ const Navbar = () => {
                 >
                   Logout
                 </button>
-                <span> {user && user.name}</span>
+                <span className="text-gray-800 hover:text-blue-600">
+                  {" "}
+                  {user && user.name}
+                </span>
               </li>
             </>
           )}
