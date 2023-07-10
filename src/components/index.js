@@ -6,3 +6,4 @@ import Comment from "./Comment";
 import CommentsList from "./CommentsList";
 
 export { Card, FormField, Loader, Navbar, Comment, CommentsList };
+export default Card;

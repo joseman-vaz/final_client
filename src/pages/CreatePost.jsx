@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import preview from "../assets/preview.png";
 import { getRandomPrompt } from "../utils";
 import { FormField, Loader, Navbar } from "../components";
+import { AuthContext } from "../context/auth.context";
 
 const CreatePost = () => {
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
 
   const [form, setForm] = useState({
-    name: "",
+    // name: "",
     prompt: "",
     photo: "",
   });
@@ -67,7 +69,10 @@ const CreatePost = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ ...form }),
+          body: JSON.stringify({
+            ...form,
+            name: user.name,
+          }),
         });
 
         await response.json();
@@ -96,14 +101,14 @@ const CreatePost = () => {
 
         <form className="mt-16 max-w-3xl" onSubmit={handleSubmit}>
           <div className="flex flex-col gap-5">
-            <FormField
+            {/* <FormField
               labelName="Your Name"
               type="text"
               name="name"
               placeholder="Ex., john doe"
               value={form.name}
               handleChange={handleChange}
-            />
+            /> */}
 
             <FormField
               labelName="Prompt"

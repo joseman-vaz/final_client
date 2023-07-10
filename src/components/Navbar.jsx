@@ -1,33 +1,46 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AiOutlineMenu } from "react-icons/ai";
 import logo from "../assets/logo.svg";
 import { AuthContext } from "../context/auth.context";
 
 const Navbar = () => {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleCreatePost = () => {
+    if (isLoggedIn) {
+      window.location.href = "/create-post";
+    } else {
+      window.location.href = "/login";
+    }
+  };
+
   return (
-    <header className="w-full bg-white border-b border-b-[#e6ebf4]">
+    <header className="w-full bg-[#f9fafe]">
       <nav className="container mx-auto flex justify-between items-center py-4 px-8">
         <Link to="/">
           <img src={logo} alt="logo" className="w-28 object-contain" />
         </Link>
-        <ul className="flex items-center space-x-4">
+        <div className="md:hidden">
+          <AiOutlineMenu onClick={() => setMenuOpen(!menuOpen)} size={30} />
+        </div>
+        <ul className="hidden md:flex items-center space-x-4">
           <li>
             <Link to="/" className="text-gray-800 hover:text-blue-600">
               Home
             </Link>
           </li>
           <li>
-            <Link
-              to="/create-post"
+            <button
+              onClick={handleCreatePost}
               className="font-medium bg-[#6469ff] text-white px-4 py-2 rounded-md hover:bg-blue-700"
             >
               Create
-            </Link>
+            </button>
           </li>
           {isLoggedIn && (
             <>
-              {" "}
               <li>
                 <Link
                   to="/user-profile"
@@ -36,15 +49,14 @@ const Navbar = () => {
                   Profile
                 </Link>
               </li>
-              <li>
+              <li className="flex items-center space-x-1">
                 <button
                   onClick={logOutUser}
                   className="text-gray-800 hover:text-blue-600"
                 >
                   Logout
-                </button>
+                </button>{" "}
                 <span className="text-gray-800 hover:text-blue-600">
-                  {" "}
                   {user && user.name}
                 </span>
               </li>
@@ -68,6 +80,66 @@ const Navbar = () => {
             </>
           )}
         </ul>
+        {menuOpen && (
+          <ul className="md:hidden absolute top-16 right-0 z-10 bg-white rounded-lg shadow-md py-2 px-4 space-y-2">
+            <li>
+              <Link to="/" className="text-gray-800 hover:text-blue-600">
+                Home
+              </Link>
+            </li>
+            <li>
+              <button
+                onClick={handleCreatePost}
+                className="font-medium bg-[#6469ff] text-white px-4 py-2 rounded-md hover:bg-blue-700"
+              >
+                Create
+              </button>
+            </li>
+            {isLoggedIn && (
+              <>
+                <li>
+                  <Link
+                    to="/user-profile"
+                    className="text-gray-800 hover:text-blue-600"
+                  >
+                    Profile
+                  </Link>
+                </li>
+                <li className="flex items-center space-x-1">
+                  <button
+                    onClick={logOutUser}
+                    className="text-gray-800 hover:text-blue-600"
+                  >
+                    Logout
+                  </button>{" "}
+                  <span className="text-gray-800 hover:text-blue-600">
+                    {user && user.name}
+                  </span>
+                </li>
+              </>
+            )}
+            {!isLoggedIn && (
+              <>
+                <li>
+                  <Link
+                    to="/login"
+                    className="text-gray-800 hover:text-blue-600"
+                  >
+                    Login
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/signup"
+                    className="text-gray-800 hover:text-blue-600"
+                  >
+                    Signup
+                  </Link>
+                </li>
+              </>
+            )}
+          </ul>
+        )}
       </nav>
     </header>
   );
