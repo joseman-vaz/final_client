@@ -2,8 +2,7 @@ import Card from "./Card";
 import FormField from "./FormField";
 import Loader from "./Loader";
 import Navbar from "./Navbar";
-import Comment from "./Comment";
-import CommentsList from "./CommentsList";
+import CommentSection from "./CommentSection";
 
-export { Card, FormField, Loader, Navbar, Comment, CommentsList };
+export { Card, FormField, Loader, Navbar, CommentSection };
 export default Card;

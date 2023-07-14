@@ -18,7 +18,7 @@ function ProfilePage() {
     const fetchUserData = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get(`${API_URL}/auth/verify`, {
+        const response = await axios.get(`${API_URL}/user-profile`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const { name, email } = response.data.user;

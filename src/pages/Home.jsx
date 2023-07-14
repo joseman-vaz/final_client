@@ -1,10 +1,15 @@
 import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
+import { Link } from "react-router-dom";
 import { Card, FormField, Loader, Navbar } from "../components";
 
 const RenderCards = ({ data, title }) => {
   if (data?.length > 0) {
-    return data.map((post) => <Card key={post._id} {...post} />);
+    return data.map((post) => (
+      <Card key={post._id} {...post}>
+        <Link to={`/image/${post._id}`}>View Details</Link>
+      </Card>
+    ));
   }
 
   return (

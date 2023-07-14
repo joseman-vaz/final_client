@@ -6,7 +6,12 @@ import { downloadImage } from "../utils";
 
 const Card = ({ _id, name = "", prompt, photo }) => (
   <div className="rounded-xl group relative shadow-card hover:shadow-cardhover card">
-    <Link to={`/image/${_id}`}>
+    <Link
+      to={{
+        pathname: `/image/${_id}`,
+        state: { _id, name, prompt, photo },
+      }}
+    >
       {" "}
       <img
         className="w-full h-auto object-cover rounded-xl"
