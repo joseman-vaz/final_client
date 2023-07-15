@@ -13,6 +13,13 @@ function CommentSection({ postId, comment = {}, onCommentChange }) {
 
   const handleCommentChange = (event) => {
     setEditedComment(event.target.value);
+    if (onCommentChange) {
+      onCommentChange({
+        ...comment,
+        content: editedComment,
+        user: comment.author,
+      });
+    }
   };
 
   const handleSave = async () => {
@@ -124,7 +131,7 @@ function CommentSection({ postId, comment = {}, onCommentChange }) {
           onChange={(event) => setContent(event.target.value)}
         />
         <button
-          className="mt-2 w-full bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+          className="mt-2 w-full bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded"
           type="submit"
         >
           Add Comment

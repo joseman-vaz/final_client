@@ -97,12 +97,13 @@ const CreatePost = () => {
             Create your master piece
           </h1>
           <p className="mt-2 text-[#666e75] text-[14px] max-w-[500px]">
-            Let your imagination run wild and create your own masterpiece.
+            Let your imagination run wild and create your own masterpiece with
+            the help of AI.
           </p>
         </div>
 
         <form className="mt-10 max-w-3xl" onSubmit={handleSubmit}>
-          <div className="flex flex-col gap-5">
+          <div className="imageCreator flex flex-col gap-5">
             {/* <FormField
               labelName="Your Name"
               type="text"
@@ -123,7 +124,7 @@ const CreatePost = () => {
               handleSurpriseMe={handleSurpriseMe}
             />
 
-            <div className="relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-60 p-3 h-60 flex justify-center items-center">
+            <div className="relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-96 max-w-full h-96 max-h-full p-3 flex justify-center mx-auto items-center">
               {form.photo ? (
                 <img
                   src={form.photo}
@@ -146,28 +147,27 @@ const CreatePost = () => {
             </div>
           </div>
 
-          <div className="mt-5 flex gap-5">
+          <div className="mt-5 flex flex-col sm:flex-row justify-between gap-5">
             <button
               type="button"
               onClick={generateImage}
-              className=" text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center  hover:bg-green-800"
+              className="text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center hover:bg-green-800"
             >
               {generatingImg ? "Generating..." : "Generate"}
             </button>
-          </div>
 
-          <div className="mt-10">
-            <p className="mt-2 text-[#666e75] text-[14px]">
-              ** Once you have created the image you want, you can share it with
-              others in the community **
-            </p>
             <button
               type="submit"
-              className="mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center  hover:bg-blue-700"
+              className="mt-2 sm:mt-0 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center hover:bg-blue-700"
             >
               {loading ? "Sharing..." : "Share with the Community"}
             </button>
           </div>
+
+          <p className="mt-2 text-[#666e75] text-[14px]">
+            ** Once you have created the image you want, you can share it with
+            others in the community **
+          </p>
         </form>
       </section>
     </>

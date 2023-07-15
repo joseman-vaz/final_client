@@ -3,7 +3,7 @@ import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 import { Navbar } from "../components";
 
-const API_URL = "http://localhost:5005/api";
+const API_URL = "http://localhost:5005/user";
 
 function ProfilePage() {
   const [isEditing, setIsEditing] = useState(false);
@@ -17,9 +17,9 @@ function ProfilePage() {
     // Fetch user data from the server
     const fetchUserData = async () => {
       try {
-        const token = localStorage.getItem("token");
-        const response = await axios.get(`${API_URL}/user-profile`, {
-          headers: { Authorization: `Bearer ${token}` },
+        const authToken = localStorage.getItem("authToken");
+        const response = await axios.get(`${API_URL}/profile`, {
+          headers: { Authorization: `Bearer ${authToken}` },
         });
         const { name, email } = response.data.user;
         setName(name);
@@ -40,11 +40,11 @@ function ProfilePage() {
 
   const handleSave = async () => {
     try {
-      const token = localStorage.getItem("token");
+      const authToken = localStorage.getItem("authToken");
       const requestBody = { name: editedName, email: editedEmail };
 
-      await axios.put(`${API_URL}/user/update`, requestBody, {
-        headers: { Authorization: `Bearer ${token}` },
+      await axios.put(`${API_URL}/update`, requestBody, {
+        headers: { Authorization: `Bearer ${authToken}` },
       });
       setName(editedName);
       setEmail(editedEmail);

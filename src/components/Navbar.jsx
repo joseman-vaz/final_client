@@ -43,7 +43,7 @@ const Navbar = () => {
             <>
               <li>
                 <Link
-                  to="/user-profile"
+                  to="/profile"
                   className="text-gray-800 hover:text-blue-600"
                 >
                   Profile

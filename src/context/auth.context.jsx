@@ -14,9 +14,20 @@ function AuthProviderWrapper(props) {
     Functions for handling the authentication status (isLoggedIn, isLoading, user)
     will be added here later in the next step
   */
+  const login = (userData) => {
+    // Update the user state with the logged in user's data
+    setUser(userData);
+  };
+
+  const logout = () => {
+    // Clear the user state
+    setUser(null);
+  };
+
   const storeToken = (token) => {
     //  <==  ADD
     localStorage.setItem("authToken", token);
+    console.log("Stored token: ", token);
   };
 
   const removeToken = () => {
@@ -73,6 +84,8 @@ function AuthProviderWrapper(props) {
   return (
     <AuthContext.Provider
       value={{
+        login,
+        logout,
         isLoggedIn,
         isLoading,
         user,

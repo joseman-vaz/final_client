@@ -70,9 +70,10 @@ const Home = () => {
     setShowMyPosts(!showMyPosts);
   };
 
-  const renderPosts = showMyPosts
-    ? allPosts.filter((post) => post.name === user.name)
-    : searchedResults || allPosts;
+  const renderPosts =
+    showMyPosts && user
+      ? allPosts.filter((post) => post.name === user.name)
+      : searchedResults || allPosts;
 
   return (
     <>

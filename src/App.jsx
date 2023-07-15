@@ -17,9 +17,10 @@ const App = () => {
           <Route path="/create-post" element={<CreatePost />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/user-profile" element={<ProfilePage />} />
-          <Route path="/user/update" element={<ProfilePage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/update" element={<ProfilePage />} />
           <Route path="/image/:_id" element={<ImagePage />} />
+          <Route path="/comments/:_id" element={<ImagePage />} />
         </Routes>
       </main>
     </BrowserRouter>
