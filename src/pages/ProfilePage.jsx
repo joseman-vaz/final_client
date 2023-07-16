@@ -11,7 +11,7 @@ function ProfilePage() {
   const [email, setEmail] = useState("");
   const [editedName, setEditedName] = useState("");
   const [editedEmail, setEditedEmail] = useState("");
-  const { user, logout } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     // Fetch user data from the server
@@ -21,7 +21,7 @@ function ProfilePage() {
         const response = await axios.get(`${API_URL}/profile`, {
           headers: { Authorization: `Bearer ${authToken}` },
         });
-        const { name, email } = response.data.user;
+        const { name, email } = response.data;
         setName(name);
         setEmail(email);
         setEditedName(name);
@@ -43,9 +43,11 @@ function ProfilePage() {
       const authToken = localStorage.getItem("authToken");
       const requestBody = { name: editedName, email: editedEmail };
 
-      await axios.put(`${API_URL}/update`, requestBody, {
+      const response = await axios.put(`${API_URL}/update`, requestBody, {
         headers: { Authorization: `Bearer ${authToken}` },
       });
+
+      console.log(response.data);
       setName(editedName);
       setEmail(editedEmail);
       setIsEditing(false);

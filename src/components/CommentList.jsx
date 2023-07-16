@@ -5,6 +5,8 @@ import Comment from "./Comment";
 
 function CommentList({ postId }) {
   const [comments, setComments] = useState([]);
+  const [displayLimit, setDisplayLimit] = useState(3);
+  const [showMore, setShowMore] = useState(false);
 
   const handleCommentSubmit = (newComment) => {
     setComments((prevComments) => [newComment, ...prevComments]);
@@ -22,6 +24,15 @@ function CommentList({ postId }) {
     setComments((prevComments) =>
       prevComments.filter((comment) => comment._id !== commentIdToDelete)
     );
+  };
+
+  const handleSeeMore = () => {
+    if (showMore) {
+      setDisplayLimit(3);
+    } else {
+      setDisplayLimit(comments.length);
+    }
+    setShowMore(!showMore);
   };
 
   useEffect(() => {
@@ -42,7 +53,7 @@ function CommentList({ postId }) {
   return (
     <div>
       <AddComment postId={postId} onCommentSubmit={handleCommentSubmit} />
-      {comments.map((comment) => (
+      {comments.slice(0, displayLimit).map((comment) => (
         <Comment
           key={comment._id}
           comment={comment}
@@ -50,6 +61,14 @@ function CommentList({ postId }) {
           onCommentDelete={handleCommentDelete}
         />
       ))}
+      {comments.length > 3 && (
+        <button
+          className="mt-2 px-4 py-2 text-white bg-[#6469ff] rounded-md hover:bg-blue-700 mx-auto block"
+          onClick={handleSeeMore}
+        >
+          {showMore ? "Hide Comments" : "See More Comments"}
+        </button>
+      )}
     </div>
   );
 }

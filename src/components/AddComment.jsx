@@ -3,7 +3,7 @@ import { AuthContext } from "../context/auth.context";
 import axios from "axios";
 
 function AddComment({ postId, onCommentSubmit }) {
-  const { user, authenticateUser } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [content, setContent] = useState("");
 
   const handleSubmit = async (event) => {
@@ -18,7 +18,6 @@ function AddComment({ postId, onCommentSubmit }) {
       );
 
       const newComment = response.data;
-      // newComment.author = response.data.author._id;
       console.log(newComment);
       onCommentSubmit(newComment);
       setContent("");
@@ -33,6 +32,12 @@ function AddComment({ postId, onCommentSubmit }) {
         className="w-full p-2 mb-2 border rounded-md"
         value={content}
         onChange={(e) => setContent(e.target.value)}
+        disabled={!user} // disable text area if user is not logged in
+        placeholder={
+          user
+            ? "Write your comment here..."
+            : "Only logged in users can post comments."
+        }
       />
       <button
         className="px-4 py-2 text-white bg-[#6469ff] rounded-md hover:bg-blue-700"
