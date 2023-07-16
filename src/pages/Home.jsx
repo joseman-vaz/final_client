@@ -3,6 +3,7 @@ import { AuthContext } from "../context/auth.context";
 import { Link } from "react-router-dom";
 import { Card, FormField, Loader, Navbar } from "../components";
 const API_URL = process.env.REACT_APP_API_URL;
+console.log("API_URL: ", API_URL);
 const RenderCards = ({ data, title }) => {
   if (data?.length > 0) {
     return data.map((post) => (
