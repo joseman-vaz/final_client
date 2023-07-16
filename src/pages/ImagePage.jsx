@@ -1,20 +1,14 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
-import {
-  Navbar,
-  CommentSection,
-  Card,
-  CommentList,
-  Comment,
-} from "../components";
+import { Navbar, Card, CommentList } from "../components";
 import { AuthContext } from "../context/auth.context";
-
+const API_URL = process.env.REACT_APP_API_URL;
 const ImagePage = () => {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   const { _id } = useParams();
   const [imageData, setImageData] = useState(null);
   const [comments, setComments] = useState([]);
-  const API_URL = process.env.REACT_APP_API_URL;
+
   // Fetch images by id
 
   useEffect(() => {

@@ -2,12 +2,12 @@ import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import AddComment from "./AddComment";
 import Comment from "./Comment";
-
+const API_URL = process.env.REACT_APP_API_URL;
 function CommentList({ postId }) {
   const [comments, setComments] = useState([]);
   const [displayLimit, setDisplayLimit] = useState(3);
   const [showMore, setShowMore] = useState(false);
-  const API_URL = process.env.REACT_APP_API_URL;
+
   const handleCommentSubmit = (newComment) => {
     setComments((prevComments) => [newComment, ...prevComments]);
   };

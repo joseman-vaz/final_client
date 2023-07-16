@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import axios from "axios";
-
+const API_URL = process.env.REACT_APP_API_URL;
 function Comment({ comment, onCommentUpdate, onCommentDelete }) {
   const { user /*isLoading*/ } = useContext(AuthContext);
   const [isEditing, setIsEditing] = useState(false);
   const [content, setContent] = useState(comment.content);
   const [author, setAuthor] = useState("");
-  const API_URL = process.env.REACT_APP_API_URL;
+
   useEffect(() => {
     const fetchUser = async () => {
       try {

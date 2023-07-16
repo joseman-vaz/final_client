@@ -1,14 +1,14 @@
 import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
-
+const API_URL = process.env.REACT_APP_API_URL;
 function CommentSection({ postId, comment = {}, onCommentChange }) {
   const { user } = useContext(AuthContext);
   const [isEditing, setIsEditing] = useState(false);
   const [editedComment, setEditedComment] = useState(comment.content || "");
   const [content, setContent] = useState("");
   const author = user ? user.username : "";
-  const API_URL = process.env.REACT_APP_API_URL;
+
   const handleEdit = () => setIsEditing(true);
 
   const handleCommentChange = (event) => {
