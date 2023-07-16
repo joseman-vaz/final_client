@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import { Link } from "react-router-dom";
 import { Card, FormField, Loader, Navbar } from "../components";
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = process.env.VITE_REACT_APP_API_URL;
 console.log("API_URL: ", API_URL);
 const RenderCards = ({ data, title }) => {
   if (data?.length > 0) {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import axios from "axios";
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = process.env.VITE_REACT_APP_API_URL;
 function Comment({ comment, onCommentUpdate, onCommentDelete }) {
   const { user /*isLoading*/ } = useContext(AuthContext);
   const [isEditing, setIsEditing] = useState(false);
