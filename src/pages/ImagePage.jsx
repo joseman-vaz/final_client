@@ -14,16 +14,14 @@ const ImagePage = () => {
   const { _id } = useParams();
   const [imageData, setImageData] = useState(null);
   const [comments, setComments] = useState([]);
-
+  const API_URL = process.env.REACT_APP_API_URL;
   // Fetch images by id
 
   useEffect(() => {
     // Fetch image data and comments by ID
     const fetchImageData = async () => {
       try {
-        const response = await fetch(
-          `http://localhost:5005/api/v1/post/image/${_id}`
-        );
+        const response = await fetch(`${API_URL}/api/v1/post/image/${_id}`);
         const data = await response.json();
         // console.log("Data from server:", data);
         setImageData(data);

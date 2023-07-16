@@ -7,7 +7,7 @@ function CommentList({ postId }) {
   const [comments, setComments] = useState([]);
   const [displayLimit, setDisplayLimit] = useState(3);
   const [showMore, setShowMore] = useState(false);
-
+  const API_URL = process.env.REACT_APP_API_URL;
   const handleCommentSubmit = (newComment) => {
     setComments((prevComments) => [newComment, ...prevComments]);
   };
@@ -39,7 +39,7 @@ function CommentList({ postId }) {
     const fetchComments = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5005/api/v1/post/image/${postId}`
+          `${API_URL}/api/v1/post/image/${postId}`
         );
         // console.log(response.data);
         setComments(response.data.comments);

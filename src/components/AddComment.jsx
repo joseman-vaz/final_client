@@ -5,6 +5,7 @@ import axios from "axios";
 function AddComment({ postId, onCommentSubmit }) {
   const { user } = useContext(AuthContext);
   const [content, setContent] = useState("");
+  const API_URL = process.env.REACT_APP_API_URL;
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -12,7 +13,7 @@ function AddComment({ postId, onCommentSubmit }) {
       const requestBody = { author: user._id, content, postId };
       const authToken = localStorage.getItem("authToken");
       const response = await axios.post(
-        "http://localhost:5005/api/v1/comments",
+        `${API_URL}/api/v1/comments`,
         requestBody,
         { headers: { Authorization: `Bearer ${authToken}` } }
       );

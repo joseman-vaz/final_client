@@ -8,7 +8,7 @@ function CommentSection({ postId, comment = {}, onCommentChange }) {
   const [editedComment, setEditedComment] = useState(comment.content || "");
   const [content, setContent] = useState("");
   const author = user ? user.username : "";
-
+  const API_URL = process.env.REACT_APP_API_URL;
   const handleEdit = () => setIsEditing(true);
 
   const handleCommentChange = (event) => {
@@ -56,14 +56,11 @@ function CommentSection({ postId, comment = {}, onCommentChange }) {
   const handleNewComment = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:5005/api/v1/comments",
-        {
-          author,
-          content,
-          postId,
-        }
-      );
+      const response = await axios.post(`${API_URL}/api/v1/comments`, {
+        author,
+        content,
+        postId,
+      });
 
       const newComment = response.data; // Get the newly created comment from the response
 

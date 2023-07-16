@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import { Link } from "react-router-dom";
 import { Card, FormField, Loader, Navbar } from "../components";
-
+const API_URL = process.env.REACT_APP_API_URL;
 const RenderCards = ({ data, title }) => {
   if (data?.length > 0) {
     return data.map((post) => (
@@ -30,7 +30,7 @@ const Home = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5005/api/v1/post", {
+      const response = await fetch(`${API_URL}/api/v1/post`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

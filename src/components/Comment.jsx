@@ -7,16 +7,15 @@ function Comment({ comment, onCommentUpdate, onCommentDelete }) {
   const [isEditing, setIsEditing] = useState(false);
   const [content, setContent] = useState(comment.content);
   const [author, setAuthor] = useState("");
-
+  const API_URL = process.env.REACT_APP_API_URL;
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const token = localStorage.getItem("authToken");
         console.log(comment.author);
-        const response = await axios.get(
-          `http://localhost:5005/user/${comment.author}`,
-          { headers: { Authorization: `Bearer ${token}` } }
-        );
+        const response = await axios.get(`${API_URL}/user/${comment.author}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
         setAuthor(response.data.name); // assuming response.data contains user details
       } catch (error) {
         console.error("Failed to fetch user", error);
@@ -30,7 +29,7 @@ function Comment({ comment, onCommentUpdate, onCommentDelete }) {
       const requestBody = { author: user._id, content };
       const authToken = localStorage.getItem("authToken");
       const response = await axios.put(
-        `http://localhost:5005/api/v1/comments/${comment._id}`,
+        `${API_URL}/api/v1/comments/${comment._id}`,
         requestBody,
         { headers: { Authorization: `Bearer ${authToken}` } }
       );
@@ -44,10 +43,9 @@ function Comment({ comment, onCommentUpdate, onCommentDelete }) {
   const handleDelete = async () => {
     try {
       const authToken = localStorage.getItem("authToken");
-      await axios.delete(
-        `http://localhost:5005/api/v1/comments/${comment._id}`,
-        { headers: { Authorization: `Bearer ${authToken}` } }
-      );
+      await axios.delete(`${API_URL}/api/v1/comments/${comment._id}`, {
+        headers: { Authorization: `Bearer ${authToken}` },
+      });
       onCommentDelete(comment._id);
     } catch (error) {
       console.error("Failed to delete comment", error);
