@@ -44,7 +44,7 @@ const ImagePage = () => {
   //   fetchComments();
   // };
   return (
-    <div>
+    <div className="w-full">
       <Navbar />
       <div className="rounded-xl group relative shadow-card hover:shadow-cardhover card inline-block">
         {imageData ? (
