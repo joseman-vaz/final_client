@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import axios from "axios";
-const API_URL = process.env.VITE_REACT_APP_API_URL;
+const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 function AddComment({ postId, onCommentSubmit }) {
   const { user } = useContext(AuthContext);
   const [content, setContent] = useState("");

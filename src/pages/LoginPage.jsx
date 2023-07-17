@@ -5,7 +5,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { Navbar } from "../components";
-const API_URL = process.env.VITE_REACT_APP_API_URL;
+const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 
 function LoginPage(props) {
   const [email, setEmail] = useState("");

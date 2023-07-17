@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
-const API_URL = process.env.VITE_REACT_APP_API_URL;
+const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 function CommentSection({ postId, comment = {}, onCommentChange }) {
   const { user } = useContext(AuthContext);
   const [isEditing, setIsEditing] = useState(false);

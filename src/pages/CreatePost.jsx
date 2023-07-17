@@ -4,7 +4,7 @@ import preview from "../assets/preview.png";
 import { getRandomPrompt } from "../utils";
 import { FormField, Loader, Navbar } from "../components";
 import { AuthContext } from "../context/auth.context";
-const API_URL = process.env.VITE_REACT_APP_API_URL;
+const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 const CreatePost = () => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);

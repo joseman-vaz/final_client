@@ -3,7 +3,8 @@ import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 import { Navbar } from "../components";
 
-const API_URL = "http://localhost:5005/user";
+// const API_URL = "http://localhost:5005/user";
+const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 
 function ProfilePage() {
   const [isEditing, setIsEditing] = useState(false);
