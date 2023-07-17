@@ -61,7 +61,7 @@ function ProfilePage() {
     <>
       <Navbar />
 
-      <div className="ProfilePage bg-gray-50 min-h-screen flex items-center justify-center mt-2">
+      <div className="ProfilePage bg-gray-50 min-h-screen flex items-center justify-center">
         <div className="bg-white p-8 rounded-lg shadow-md w-96 space-y-4">
           <h1 className="text-2xl font-semibold mb-6 text-center">Profile</h1>
 

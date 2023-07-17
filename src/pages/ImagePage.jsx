@@ -28,21 +28,6 @@ const ImagePage = () => {
     fetchImageData();
   }, [_id]);
 
-  // const handleCommentChange = () => {
-  //   // Fetch comments again
-  //   const fetchComments = async () => {
-  //     try {
-  //       const response = await fetch(
-  //         `http://localhost:5005/api/v1/post/image/${_id}`
-  //       );
-  //       const data = await response.json();
-  //       setComments(data.comments);
-  //     } catch (error) {
-  //       console.error("Failed to fetch comments", error);
-  //     }
-  //   };
-  //   fetchComments();
-  // };
   return (
     <div className="max-w-screen-md mx-auto">
       <Navbar />
