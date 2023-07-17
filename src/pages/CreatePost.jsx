@@ -30,10 +30,12 @@ const CreatePost = () => {
     if (form.prompt) {
       try {
         setGeneratingImg(true);
+        const token = localStorage.getItem("authToken");
         const response = await fetch(`${API_URL}/api/v1/dalle`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({
             prompt: form.prompt,
@@ -64,10 +66,12 @@ const CreatePost = () => {
     if (form.prompt && form.photo) {
       setLoading(true);
       try {
+        const token = localStorage.getItem("authToken");
         const response = await fetch(`${API_URL}/api/v1/post`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({
             ...form,
