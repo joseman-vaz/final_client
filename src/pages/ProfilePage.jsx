@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
-import { Navbar } from "../components";
+import { Navbar, Footer } from "../components";
 
 // const API_URL = "http://localhost:5005/user";
 const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
@@ -128,6 +128,7 @@ function ProfilePage() {
           )}
         </div>
       </div>
+      <Footer />
     </>
   );
 }

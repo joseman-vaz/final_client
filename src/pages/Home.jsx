@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import { Link } from "react-router-dom";
-import { Card, FormField, Loader, Navbar } from "../components";
+import { Card, FormField, Loader, Navbar, Footer } from "../components";
 const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 console.log("API_URL: ", API_URL);
 const RenderCards = ({ data, title }) => {
@@ -140,6 +140,7 @@ const Home = () => {
           )}
         </div>
       </section>
+      <Footer />
     </>
   );
 };

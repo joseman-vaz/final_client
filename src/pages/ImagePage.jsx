@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { Navbar, Card, CommentList } from "../components";
+import { Navbar, Card, CommentList, Footer } from "../components";
 import { AuthContext } from "../context/auth.context";
 const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 const ImagePage = () => {
@@ -46,6 +46,7 @@ const ImagePage = () => {
       <div className="max-w-screen-md mx-auto">
         <CommentList postId={_id} />
       </div>
+      <Footer />
     </div>
   );
 };

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Navbar } from "../components";
+import { Navbar, Footer } from "../components";
 import axios from "axios";
 
 const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
@@ -121,6 +121,7 @@ function SignupPage(props) {
           </p>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

@@ -6,7 +6,7 @@ import CommentSection from "./CommentSection";
 import Comment from "./Comment";
 import AddComment from "./AddComment";
 import CommentList from "./CommentList";
-
+import Footer from "./footer";
 export {
   Card,
   FormField,
@@ -16,5 +16,6 @@ export {
   Comment,
   AddComment,
   CommentList,
+  Footer,
 };
 export default Card;

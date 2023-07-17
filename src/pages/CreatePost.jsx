@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import preview from "../assets/preview.png";
 import { getRandomPrompt } from "../utils";
-import { FormField, Loader, Navbar } from "../components";
+import { FormField, Loader, Navbar, Footer } from "../components";
 import { AuthContext } from "../context/auth.context";
 const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 const CreatePost = () => {
@@ -174,6 +174,7 @@ const CreatePost = () => {
           </p>
         </form>
       </section>
+      <Footer />
     </>
   );
 };
