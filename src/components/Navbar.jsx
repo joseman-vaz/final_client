@@ -1,9 +1,8 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineMenu } from "react-icons/ai";
 import logo from "../assets/logo.svg";
 import { AuthContext } from "../context/auth.context";
-import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
