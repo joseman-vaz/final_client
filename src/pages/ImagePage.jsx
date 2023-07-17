@@ -44,7 +44,7 @@ const ImagePage = () => {
   //   fetchComments();
   // };
   return (
-    <div className="w-full">
+    <div className="image-container mx-auto">
       <Navbar />
       <div className="rounded-xl group relative shadow-card hover:shadow-cardhover card inline-block">
         {imageData ? (
@@ -58,21 +58,9 @@ const ImagePage = () => {
           <div>Loading...</div>
         )}
       </div>
-      {/* <div>
-        {comments.map((comment) => (
-          <div key={comment._id}>
-            <p>{comment.user}</p>
-            <p>{comment.content}</p>
-          </div>
-        ))}
-      </div> */}
-      {/* <CommentSection postId={_id} onCommentChange={handleCommentChange} /> */}
-      {/* <div>
-        {comments.map((comment) => (
-          <Comment key={comment._id} comment={comment} />
-        ))}
-      </div> */}
-      <CommentList postId={_id} />
+      <div className="comment-container mx-auto">
+        <CommentList postId={_id} />
+      </div>
     </div>
   );
 };
