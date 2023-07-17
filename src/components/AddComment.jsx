@@ -7,7 +7,7 @@ const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 function AddComment({ postId, onCommentSubmit }) {
   const { user } = useContext(AuthContext);
   const [content, setContent] = useState("");
-  const history = useHistory();
+  // const history = useHistory();
 
   const handleSubmit = async (event) => {
     event.preventDefault();

@@ -31,7 +31,7 @@ const ImagePage = () => {
   return (
     <div className="max-w-screen-md mx-auto">
       <Navbar />
-      <div className="rounded-xl group relative shadow-card hover:shadow-cardhover card inline-block">
+      <div className="rounded-xl group relative shadow-card hover:shadow-cardhover card inline-block mt-2">
         {imageData ? (
           <Card
             _id={_id}
