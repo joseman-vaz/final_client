@@ -44,7 +44,7 @@ const ImagePage = () => {
   //   fetchComments();
   // };
   return (
-    <div className="image-container mx-auto">
+    <div className="max-w-screen-md mx-auto">
       <Navbar />
       <div className="rounded-xl group relative shadow-card hover:shadow-cardhover card inline-block">
         {imageData ? (
@@ -58,7 +58,7 @@ const ImagePage = () => {
           <div>Loading...</div>
         )}
       </div>
-      <div className="comment-container mx-auto">
+      <div className="max-w-screen-md mx-auto">
         <CommentList postId={_id} />
       </div>
     </div>
