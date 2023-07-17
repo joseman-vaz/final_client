@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-// import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import axios from "axios";
 const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
@@ -7,14 +7,14 @@ const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 function AddComment({ postId, onCommentSubmit }) {
   const { user } = useContext(AuthContext);
   const [content, setContent] = useState("");
-  // const history = useHistory();
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // if (!user) {
-    //   history.push("/login");
-    //   return;
-    // }
+    if (!user) {
+      navigate("/login");
+      return;
+    }
     try {
       const requestBody = { author: user._id, content, postId };
       const authToken = localStorage.getItem("authToken");
