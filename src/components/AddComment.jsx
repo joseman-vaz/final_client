@@ -27,7 +27,7 @@ function AddComment({ postId, onCommentSubmit }) {
   };
 
   return (
-    <form className="p-4 shadow-md rounded-md" onSubmit={handleSubmit}>
+    <form className="w-full p-4 shadow-md rounded-md" onSubmit={handleSubmit}>
       <textarea
         className="w-full p-2 mb-2 border rounded-md"
         value={content}
