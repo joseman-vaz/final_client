@@ -80,7 +80,7 @@ const CreatePost = () => {
         });
 
         await response.json();
-        alert("Success");
+        // alert("Success");
         navigate("/");
       } catch (err) {
         console.error(err);

@@ -1,13 +1,17 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useHistory, useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import axios from "axios";
 const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 function AddComment({ postId, onCommentSubmit }) {
   const { user } = useContext(AuthContext);
   const [content, setContent] = useState("");
-
+  const history = useHistory();
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (!user) {
+      history.push("/login");
+      return;
+    }
     try {
       const requestBody = { author: user._id, content, postId };
       const authToken = localStorage.getItem("authToken");
