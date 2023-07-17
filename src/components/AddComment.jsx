@@ -1,11 +1,14 @@
-import React, { useHistory, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import axios from "axios";
 const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
+
 function AddComment({ postId, onCommentSubmit }) {
   const { user } = useContext(AuthContext);
   const [content, setContent] = useState("");
   const history = useHistory();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!user) {
