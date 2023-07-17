@@ -3,16 +3,25 @@ import { Link } from "react-router-dom";
 import { AiOutlineMenu } from "react-icons/ai";
 import logo from "../assets/logo.svg";
 import { AuthContext } from "../context/auth.context";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // const handleCreatePost = () => {
+  //   if (isLoggedIn) {
+  //     window.location.href = "/create-post";
+  //   } else {
+  //     window.location.href = "/login";
+  //   }
+  // };
   const handleCreatePost = () => {
     if (isLoggedIn) {
-      window.location.href = "/create-post";
+      navigate("/create-post");
     } else {
-      window.location.href = "/login";
+      navigate("/login");
     }
   };
 
