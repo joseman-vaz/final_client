@@ -95,7 +95,7 @@ const CreatePost = () => {
   return (
     <>
       <Navbar />
-      <div className="flex items-center justify-center px-4 sm:px-2">
+      <div className="flex items-center justify-center px-4 sm:px-4">
         <section className="max-w-7xl mx-auto mt-4">
           <div>
             <h1 className="font-extrabold text-[#222328] text-[32px] text-center">
@@ -125,7 +125,7 @@ const CreatePost = () => {
                   <img
                     src={form.photo}
                     alt={form.prompt}
-                    className="w-full h-full object-contain"
+                    className="w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl h-full object-contain"
                   />
                 ) : (
                   <img
