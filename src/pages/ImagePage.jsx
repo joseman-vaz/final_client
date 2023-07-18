@@ -31,23 +31,23 @@ const ImagePage = () => {
   return (
     <div className="max-w-screen-md mx-auto">
       <Navbar />
-      <div className="flex justify-between items-center">
-        <div className="rounded-xl group relative shadow-card hover:shadow-cardhover card inline-block mt-2">
-          {imageData ? (
-            <Card
-              _id={_id}
-              name={imageData.name}
-              prompt={imageData.prompt}
-              photo={imageData.imageUrl}
-            />
-          ) : (
-            <div>Loading...</div>
-          )}
-        </div>
-        <div className="max-w-screen-md mx-auto">
-          <CommentList postId={_id} />
-        </div>
+
+      <div className="rounded-xl group relative shadow-card hover:shadow-cardhover card inline-block mt-2">
+        {imageData ? (
+          <Card
+            _id={_id}
+            name={imageData.name}
+            prompt={imageData.prompt}
+            photo={imageData.imageUrl}
+          />
+        ) : (
+          <div>Loading...</div>
+        )}
       </div>
+      <div className="max-w-screen-md mx-auto">
+        <CommentList postId={_id} />
+      </div>
+
       <Footer />
     </div>
   );
