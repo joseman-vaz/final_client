@@ -85,9 +85,9 @@ const Home = () => {
             The Community Gallery
           </h1>
           <p className="mt-2 text-[#666e75] text-[14px] max-w-[500px] mx-auto">
-            Browse through a captivating assortment of captivating artwork,
-            fascinating creations, and inspiring contributions from our vibrant
-            community.
+            Browse through an assortment of captivating artwork, fascinating
+            creations, and inspiring contributions from our vibrant community.
+            Create yours, download the ones you like and share them.
           </p>
         </div>
 
