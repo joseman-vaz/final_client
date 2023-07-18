@@ -29,7 +29,7 @@ const ImagePage = () => {
   }, [_id]);
 
   return (
-    <div className="max-w-screen-md px-4 sm:px-0 mx-auto">
+    <div className="max-w-screen-md px-4 sm:px-1 mx-auto">
       <Navbar />
 
       <div className="rounded-xl group relative shadow-card hover:shadow-cardhover card inline-block mt-2">
