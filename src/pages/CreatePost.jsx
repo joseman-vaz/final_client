@@ -98,7 +98,7 @@ const CreatePost = () => {
       <section className="max-w-7xl mx-auto mt-6">
         <div>
           <h1 className="font-extrabold text-[#222328] text-[32px]">
-            Create your master piece
+            Create your masterpiece
           </h1>
           <p className="mt-2 text-[#666e75] text-[14px] max-w-[500px]">
             Let your imagination run wild and create your own masterpiece with
@@ -168,7 +168,7 @@ const CreatePost = () => {
             </button>
           </div>
 
-          <p className="mt-2 text-[#666e75] text-[14px]">
+          <p className="mt-3 text-[#666e75] text-[14px]">
             ** Once you have created the image you want, you can share it with
             others in the community **
           </p>
