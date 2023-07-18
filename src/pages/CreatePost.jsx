@@ -107,7 +107,10 @@ const CreatePost = () => {
             </p>
           </div>
 
-          <form className="mt-10 max-w-3xl" onSubmit={handleSubmit}>
+          <form
+            className="mt-10 max-w-3xl px-4 sm:px-0"
+            onSubmit={handleSubmit}
+          >
             <div className="imageCreator flex flex-col gap-5">
               <FormField
                 labelName="Prompt"
