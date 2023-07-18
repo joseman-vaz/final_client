@@ -96,12 +96,12 @@ const CreatePost = () => {
     <>
       <Navbar />
       <div className="flex items-center justify-center h-screen">
-        <section className="max-w-7xl mx-auto mt-6">
+        <section className="max-w-7xl mx-auto mt-2">
           <div>
-            <h1 className="font-extrabold text-[#222328] text-[32px]">
+            <h1 className="font-extrabold text-[#222328] text-[32px] text-center">
               Create your masterpiece
             </h1>
-            <p className="mt-2 text-[#666e75] text-[14px] max-w-[500px]">
+            <p className="mt-2 text-[#666e75] text-[14px] max-w-[500px] text-center">
               Let your imagination run wild and create your own masterpiece with
               the help of AI.
             </p>
