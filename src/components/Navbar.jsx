@@ -105,14 +105,14 @@ const Navbar = () => {
             </li>
             {isLoggedIn && (
               <>
-                <li>
+                {/* <li>
                   <Link
                     to="/profile"
                     className="text-gray-800 hover:text-blue-600"
                   >
                     Profile
                   </Link>
-                </li>
+                </li> */}
                 <li className="flex items-center space-x-1">
                   <button
                     onClick={logOutUser}
