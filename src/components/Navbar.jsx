@@ -82,7 +82,7 @@ const Navbar = () => {
                   to="/signup"
                   className="text-gray-800 hover:text-blue-600"
                 >
-                  Signup
+                  Sign up
                 </Link>
               </li>
             </>
