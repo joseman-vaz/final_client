@@ -95,7 +95,7 @@ const CreatePost = () => {
   return (
     <>
       <Navbar />
-      <div className="flex items-center justify-center px-4 sm:px-4">
+      <div className="flex items-center justify-center px-2 sm:px-4">
         <section className="max-w-7xl mx-auto mt-4">
           <div>
             <h1 className="font-extrabold text-[#222328] text-[32px] text-center">
@@ -128,13 +128,13 @@ const CreatePost = () => {
                   <img
                     src={form.photo}
                     alt={form.prompt}
-                    className="w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl h-full object-contain"
+                    className="w-full h-full object-contain"
                   />
                 ) : (
                   <img
                     src={preview}
                     alt="preview"
-                    className="w-9/12 h-9/12 object-contain opacity-40"
+                    className="w-full h-full object-contain opacity-40"
                   />
                 )}
 
@@ -150,14 +150,14 @@ const CreatePost = () => {
               <button
                 type="button"
                 onClick={generateImage}
-                className="text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center hover:bg-green-800"
+                className="text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto px-2 py-2.5 text-center hover:bg-green-800"
               >
                 {generatingImg ? "Generating..." : "Generate"}
               </button>
 
               <button
                 type="submit"
-                className="mt-2 sm:mt-0 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center hover:bg-blue-700"
+                className="mt-2 sm:mt-0 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-2 py-2.5 text-center hover:bg-blue-700"
               >
                 {loading ? "Sharing..." : "Share with the Community"}
               </button>
