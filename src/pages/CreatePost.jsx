@@ -160,7 +160,7 @@ const CreatePost = () => {
             </button>
           </div>
 
-          <p className="mt-3 text-[#666e75] text-[14px]">
+          <p className="mt-3 text-[#666e75] text-[14px] text-center">
             ** Once you have created the image you want, you can share it with
             others in the community **
           </p>
